@@ -3,9 +3,10 @@ package uk.bbk.popii.firslesson;
 public class HelloWorld extends FirstClass{
     public static void main(String a[]){
         HelloWorld hw = new HelloWorld();
+        System.out.println(hw);
+
         hw.inherit();
         hw.printa(1);
-
     }
 
     private void inherit(){
