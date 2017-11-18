@@ -4,7 +4,7 @@ import Worksheet_1.ex.*;
 import java.util.*;
 
 
-public class WS_1 extends One{
+public class WS_1 extends Int2HexOctBin{
 
         public static void main (String s[]){
 /*        WS_1 one = new WS_1();
@@ -16,8 +16,8 @@ public class WS_1 extends One{
         }
 */
 
-        TwoThree tt = new TwoThree();
-        String ss = (tt.printUnicode("नमस्कार"));
+        WorkSheet_One ws1 = new WorkSheet_One();
+        String ss = (ws1.printUnicode("नमस्कार"));
             System.out.println(ss);
 
         }

@@ -6,7 +6,7 @@ package Worksheet_1.ex;
 
 import java.util.HashMap;
 
-public class One {
+public class Int2HexOctBin {
 
     private String octResult = "";
     private String HexResult = "";

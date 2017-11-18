@@ -1,4 +1,7 @@
 package Worksheet_1.ex;
+/**
+ * @author: Antonio Latela
+ */
 
 import java.math.BigInteger;
 import java.util.HashMap;
@@ -21,7 +24,7 @@ import java.util.Scanner;
  */
 
 
-public class TwoThree {
+public class WorkSheet_One {
     private Scanner sc = new Scanner(System.in);
 
     public int getMax() {
@@ -120,7 +123,6 @@ public class TwoThree {
             }
 
         }
-        System.out.println(rand);
         double result = 0;
 
         for (i=0; i<rand.length(); i++) {
@@ -140,7 +142,7 @@ public class TwoThree {
         for (int i = 0; i < s.length(); i++){
             int cInt = (int)s.charAt(i);
             if (cInt > 127){
-                One one = new One();
+                Int2HexOctBin one = new Int2HexOctBin();
                 thex = one.int2Boh(cInt).get("0x").toString();
                 while (ii>thex.length()) {
                     thex = "0"+thex;

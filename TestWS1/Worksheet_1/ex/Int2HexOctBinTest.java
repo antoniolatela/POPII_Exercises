@@ -4,13 +4,13 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class oneTest {
-    private One one;
+public class Int2HexOctBinTest {
+    private Int2HexOctBin one;
 
 
     @Before
     public void setUp() throws Exception {
-        one = new One();
+        one = new Int2HexOctBin();
     }
 
     @Test
