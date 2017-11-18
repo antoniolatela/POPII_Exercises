@@ -51,11 +51,11 @@ public class One {
 
     /**
      *
-     * @param rest
+     * @param mod
      * @return
      */
-    private String printRest(int rest){
-        switch (rest) {
+    private String getMod(int mod){
+        switch (mod) {
             case 10:
                 return ("A");
             case 11:
@@ -69,7 +69,7 @@ public class One {
             case 15:
                 return ("F");
             default:
-                return (String.valueOf(rest));
+                return (String.valueOf(mod));
         }
     }
 
@@ -83,9 +83,9 @@ public class One {
         int div = (i/16);
         if (div>0){
             getHex(div);
-            HexResult += (printRest(rest));
+            HexResult += (getMod(rest));
         } else {
-            HexResult += (printRest(rest));
+            HexResult += (getMod(rest));
         }
         return HexResult;
     }
