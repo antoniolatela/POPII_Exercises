@@ -95,7 +95,7 @@ public class Int2HexOctBin {
      * @param i
      * @return
      */
-    public HashMap int2Boh(int i){
+    protected HashMap int2Boh(int i){
         HashMap<String, String> ret = new HashMap<String, String>();
         ret.put("0d", String.valueOf(i));
         ret.put("0o", getOct(i));
