@@ -1,109 +1,189 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="module_popii_-_exercises" default="compile.module.popii_-_exercises">
-  <dirname property="module.popii_-_exercises.basedir" file="/build.xml"/>
-  
-  <property name="module.jdk.home.popii_-_exercises" value="${project.jdk.home}"/>
-  <property name="module.jdk.bin.popii_-_exercises" value="${project.jdk.bin}"/>
-  <property name="module.jdk.classpath.popii_-_exercises" value="${project.jdk.classpath}"/>
-  
-  <property name="compiler.args.popii_-_exercises" value="-encoding UTF-8 -source 9 -target 9 ${compiler.args}"/>
-  
-  <property name="popii_-_exercises.output.dir" value="${module.popii_-_exercises.basedir}/out/production/POPII - Exercises"/>
-  <property name="popii_-_exercises.testoutput.dir" value="${module.popii_-_exercises.basedir}/out/test/POPII - Exercises"/>
-  
-  <path id="popii_-_exercises.module.bootclasspath">
-    <!-- Paths to be included in compilation bootclasspath -->
-  </path>
-  
-  <path id="popii_-_exercises.module.production.classpath">
-    <path refid="${module.jdk.classpath.popii_-_exercises}"/>
-  </path>
-  
-  <path id="popii_-_exercises.runtime.production.module.classpath">
-    <pathelement location="${popii_-_exercises.output.dir}"/>
-  </path>
-  
-  <path id="popii_-_exercises.module.classpath">
-    <path refid="${module.jdk.classpath.popii_-_exercises}"/>
-    <pathelement location="${popii_-_exercises.output.dir}"/>
-    <pathelement location="${idea.home}/lib/hamcrest-core-1.3.jar"/>
-    <pathelement location="${idea.home}/lib/junit-4.12.jar"/>
-  </path>
-  
-  <path id="popii_-_exercises.runtime.module.classpath">
-    <pathelement location="${popii_-_exercises.testoutput.dir}"/>
-    <pathelement location="${popii_-_exercises.output.dir}"/>
-    <pathelement location="${idea.home}/lib/hamcrest-core-1.3.jar"/>
-    <pathelement location="${idea.home}/lib/junit-4.12.jar"/>
-  </path>
+<project name="popii_-_exercises" default="all">
   
   
-  <patternset id="excluded.from.module.popii_-_exercises">
-    <patternset refid="ignored.files"/>
+  <property file="build.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.egg"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+    <include name="*.swc"/>
+    <include name="*.war"/>
+    <include name="*.ane"/>
+    <include name="*.zip"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
   </patternset>
   
-  <patternset id="excluded.from.compilation.popii_-_exercises">
-    <patternset refid="excluded.from.module.popii_-_exercises"/>
-  </patternset>
+  <!-- JDK definitions -->
   
-  <path id="popii_-_exercises.module.sourcepath">
-    <dirset dir="${module.popii_-_exercises.basedir}">
-      <include name="src"/>
-    </dirset>
+  <property name="jdk.bin.9.0" value="${jdk.home.9.0}/bin"/>
+  <path id="jdk.classpath.9.0">
+    <fileset dir="${jdk.home.9.0}">
+      <include name="../Home!/java.activation"/>
+      <include name="../Home!/java.base"/>
+      <include name="../Home!/java.compiler"/>
+      <include name="../Home!/java.corba"/>
+      <include name="../Home!/java.datatransfer"/>
+      <include name="../Home!/java.desktop"/>
+      <include name="../Home!/java.instrument"/>
+      <include name="../Home!/java.jnlp"/>
+      <include name="../Home!/java.logging"/>
+      <include name="../Home!/java.management"/>
+      <include name="../Home!/java.management.rmi"/>
+      <include name="../Home!/java.naming"/>
+      <include name="../Home!/java.prefs"/>
+      <include name="../Home!/java.rmi"/>
+      <include name="../Home!/java.scripting"/>
+      <include name="../Home!/java.se"/>
+      <include name="../Home!/java.se.ee"/>
+      <include name="../Home!/java.security.jgss"/>
+      <include name="../Home!/java.security.sasl"/>
+      <include name="../Home!/java.smartcardio"/>
+      <include name="../Home!/java.sql"/>
+      <include name="../Home!/java.sql.rowset"/>
+      <include name="../Home!/java.transaction"/>
+      <include name="../Home!/java.xml"/>
+      <include name="../Home!/java.xml.bind"/>
+      <include name="../Home!/java.xml.crypto"/>
+      <include name="../Home!/java.xml.ws"/>
+      <include name="../Home!/java.xml.ws.annotation"/>
+      <include name="../Home!/javafx.base"/>
+      <include name="../Home!/javafx.controls"/>
+      <include name="../Home!/javafx.deploy"/>
+      <include name="../Home!/javafx.fxml"/>
+      <include name="../Home!/javafx.graphics"/>
+      <include name="../Home!/javafx.media"/>
+      <include name="../Home!/javafx.swing"/>
+      <include name="../Home!/javafx.web"/>
+      <include name="../Home!/jdk.accessibility"/>
+      <include name="../Home!/jdk.attach"/>
+      <include name="../Home!/jdk.charsets"/>
+      <include name="../Home!/jdk.compiler"/>
+      <include name="../Home!/jdk.crypto.cryptoki"/>
+      <include name="../Home!/jdk.crypto.ec"/>
+      <include name="../Home!/jdk.deploy"/>
+      <include name="../Home!/jdk.deploy.controlpanel"/>
+      <include name="../Home!/jdk.dynalink"/>
+      <include name="../Home!/jdk.editpad"/>
+      <include name="../Home!/jdk.hotspot.agent"/>
+      <include name="../Home!/jdk.httpserver"/>
+      <include name="../Home!/jdk.incubator.httpclient"/>
+      <include name="../Home!/jdk.internal.ed"/>
+      <include name="../Home!/jdk.internal.jvmstat"/>
+      <include name="../Home!/jdk.internal.le"/>
+      <include name="../Home!/jdk.internal.opt"/>
+      <include name="../Home!/jdk.internal.vm.ci"/>
+      <include name="../Home!/jdk.jartool"/>
+      <include name="../Home!/jdk.javadoc"/>
+      <include name="../Home!/jdk.javaws"/>
+      <include name="../Home!/jdk.jcmd"/>
+      <include name="../Home!/jdk.jconsole"/>
+      <include name="../Home!/jdk.jdeps"/>
+      <include name="../Home!/jdk.jdi"/>
+      <include name="../Home!/jdk.jdwp.agent"/>
+      <include name="../Home!/jdk.jfr"/>
+      <include name="../Home!/jdk.jlink"/>
+      <include name="../Home!/jdk.jshell"/>
+      <include name="../Home!/jdk.jsobject"/>
+      <include name="../Home!/jdk.jstatd"/>
+      <include name="../Home!/jdk.localedata"/>
+      <include name="../Home!/jdk.management"/>
+      <include name="../Home!/jdk.management.agent"/>
+      <include name="../Home!/jdk.management.cmm"/>
+      <include name="../Home!/jdk.management.jfr"/>
+      <include name="../Home!/jdk.management.resource"/>
+      <include name="../Home!/jdk.naming.dns"/>
+      <include name="../Home!/jdk.naming.rmi"/>
+      <include name="../Home!/jdk.net"/>
+      <include name="../Home!/jdk.pack"/>
+      <include name="../Home!/jdk.packager"/>
+      <include name="../Home!/jdk.packager.services"/>
+      <include name="../Home!/jdk.plugin"/>
+      <include name="../Home!/jdk.plugin.dom"/>
+      <include name="../Home!/jdk.plugin.server"/>
+      <include name="../Home!/jdk.policytool"/>
+      <include name="../Home!/jdk.rmic"/>
+      <include name="../Home!/jdk.scripting.nashorn"/>
+      <include name="../Home!/jdk.scripting.nashorn.shell"/>
+      <include name="../Home!/jdk.sctp"/>
+      <include name="../Home!/jdk.security.auth"/>
+      <include name="../Home!/jdk.security.jgss"/>
+      <include name="../Home!/jdk.snmp"/>
+      <include name="../Home!/jdk.unsupported"/>
+      <include name="../Home!/jdk.xml.bind"/>
+      <include name="../Home!/jdk.xml.dom"/>
+      <include name="../Home!/jdk.xml.ws"/>
+      <include name="../Home!/jdk.zipfs"/>
+      <include name="../Home!/oracle.desktop"/>
+      <include name="../Home!/oracle.net"/>
+    </fileset>
   </path>
   
-  <path id="popii_-_exercises.module.test.sourcepath">
-    <dirset dir="${module.popii_-_exercises.basedir}">
-      <include name="Test"/>
-      <include name="TestWS1"/>
-    </dirset>
+  <property name="project.jdk.home" value="${jdk.home.9.0}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.9.0}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.9.0"/>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm-all.jar"/>
+    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
   </path>
-  
-  
-  <target name="compile.module.popii_-_exercises" depends="compile.module.popii_-_exercises.production,compile.module.popii_-_exercises.tests" description="Compile module POPII - Exercises"/>
-  
-  <target name="compile.module.popii_-_exercises.production" depends="register.custom.compilers" description="Compile module POPII - Exercises; production classes">
-    <mkdir dir="${popii_-_exercises.output.dir}"/>
-    <javac2 destdir="${popii_-_exercises.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.popii_-_exercises}/javac">
-      <compilerarg line="${compiler.args.popii_-_exercises}"/>
-      <bootclasspath refid="popii_-_exercises.module.bootclasspath"/>
-      <classpath refid="popii_-_exercises.module.production.classpath"/>
-      <src refid="popii_-_exercises.module.sourcepath"/>
-      <patternset refid="excluded.from.compilation.popii_-_exercises"/>
-    </javac2>
-    
-    <copy todir="${popii_-_exercises.output.dir}">
-      <fileset dir="${module.popii_-_exercises.basedir}/src">
-        <patternset refid="compiler.resources"/>
-        <type type="file"/>
-      </fileset>
-    </copy>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
   </target>
   
-  <target name="compile.module.popii_-_exercises.tests" depends="register.custom.compilers,compile.module.popii_-_exercises.production" description="compile module POPII - Exercises; test classes" unless="skip.tests">
-    <mkdir dir="${popii_-_exercises.testoutput.dir}"/>
-    <javac2 destdir="${popii_-_exercises.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.popii_-_exercises}/javac">
-      <compilerarg line="${compiler.args.popii_-_exercises}"/>
-      <bootclasspath refid="popii_-_exercises.module.bootclasspath"/>
-      <classpath refid="popii_-_exercises.module.classpath"/>
-      <src refid="popii_-_exercises.module.test.sourcepath"/>
-      <patternset refid="excluded.from.compilation.popii_-_exercises"/>
-    </javac2>
-    
-    <copy todir="${popii_-_exercises.testoutput.dir}">
-      <fileset dir="${module.popii_-_exercises.basedir}/Test">
-        <patternset refid="compiler.resources"/>
-        <type type="file"/>
-      </fileset>
-      <fileset dir="${module.popii_-_exercises.basedir}/TestWS1">
-        <patternset refid="compiler.resources"/>
-        <type type="file"/>
-      </fileset>
-    </copy>
+  <!-- Modules -->
+  
+  <import file="${basedir}/module_popii_-_exercises.xml"/>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
   </target>
   
-  <target name="clean.module.popii_-_exercises" description="cleanup module">
-    <delete dir="${popii_-_exercises.output.dir}"/>
-    <delete dir="${popii_-_exercises.testoutput.dir}"/>
-  </target>
+  <target name="clean" depends="clean.module.popii_-_exercises" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.popii_-_exercises" description="build all modules"/>
+  
+  <target name="all" depends="build.modules" description="build all"/>
 </project>
