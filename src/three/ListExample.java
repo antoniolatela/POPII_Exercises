@@ -15,7 +15,7 @@ public class ListExample {
         System.out.println(l);
         System.out.println(l.size());
 
-        for (int i: l){
+        for (Integer i: l){
             System.out.print(i);
         }
     }
