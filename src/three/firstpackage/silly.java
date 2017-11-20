@@ -8,6 +8,11 @@ public class silly extends AbstractSilly implements MyInterface {
     public String message(String s) {
         return "First " +s;
     }
+
+    @Override
+    public void other() {
+
+    }
 /*    @Override
     public void thing(){
         System.out.println("------");

@@ -18,4 +18,9 @@ public class silly implements MyInterface{
 
     }
 
+    @Override
+    public void other() {
+
+    }
+
 }

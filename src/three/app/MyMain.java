@@ -17,5 +17,7 @@ public class MyMain {
         my3.thing();
         System.out.println(MyInterface.aMethod());
 
+        System.out.println(my3.somethingElse());
+
     }
 }

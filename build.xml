@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_popii_-_exercises" default="compile.module.popii_-_exercises">
+  <dirname property="module.popii_-_exercises.basedir" file="/build.xml"/>
+  
+  <property name="module.jdk.home.popii_-_exercises" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.popii_-_exercises" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.popii_-_exercises" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.popii_-_exercises" value="-encoding UTF-8 -source 9 -target 9 ${compiler.args}"/>
+  
+  <property name="popii_-_exercises.output.dir" value="${module.popii_-_exercises.basedir}/out/production/POPII - Exercises"/>
+  <property name="popii_-_exercises.testoutput.dir" value="${module.popii_-_exercises.basedir}/out/test/POPII - Exercises"/>
+  
+  <path id="popii_-_exercises.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="popii_-_exercises.module.production.classpath">
+    <path refid="${module.jdk.classpath.popii_-_exercises}"/>
+  </path>
+  
+  <path id="popii_-_exercises.runtime.production.module.classpath">
+    <pathelement location="${popii_-_exercises.output.dir}"/>
+  </path>
+  
+  <path id="popii_-_exercises.module.classpath">
+    <path refid="${module.jdk.classpath.popii_-_exercises}"/>
+    <pathelement location="${popii_-_exercises.output.dir}"/>
+    <pathelement location="${idea.home}/lib/hamcrest-core-1.3.jar"/>
+    <pathelement location="${idea.home}/lib/junit-4.12.jar"/>
+  </path>
+  
+  <path id="popii_-_exercises.runtime.module.classpath">
+    <pathelement location="${popii_-_exercises.testoutput.dir}"/>
+    <pathelement location="${popii_-_exercises.output.dir}"/>
+    <pathelement location="${idea.home}/lib/hamcrest-core-1.3.jar"/>
+    <pathelement location="${idea.home}/lib/junit-4.12.jar"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.popii_-_exercises">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.popii_-_exercises">
+    <patternset refid="excluded.from.module.popii_-_exercises"/>
+  </patternset>
+  
+  <path id="popii_-_exercises.module.sourcepath">
+    <dirset dir="${module.popii_-_exercises.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  <path id="popii_-_exercises.module.test.sourcepath">
+    <dirset dir="${module.popii_-_exercises.basedir}">
+      <include name="Test"/>
+      <include name="TestWS1"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.popii_-_exercises" depends="compile.module.popii_-_exercises.production,compile.module.popii_-_exercises.tests" description="Compile module POPII - Exercises"/>
+  
+  <target name="compile.module.popii_-_exercises.production" depends="register.custom.compilers" description="Compile module POPII - Exercises; production classes">
+    <mkdir dir="${popii_-_exercises.output.dir}"/>
+    <javac2 destdir="${popii_-_exercises.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.popii_-_exercises}/javac">
+      <compilerarg line="${compiler.args.popii_-_exercises}"/>
+      <bootclasspath refid="popii_-_exercises.module.bootclasspath"/>
+      <classpath refid="popii_-_exercises.module.production.classpath"/>
+      <src refid="popii_-_exercises.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.popii_-_exercises"/>
+    </javac2>
+    
+    <copy todir="${popii_-_exercises.output.dir}">
+      <fileset dir="${module.popii_-_exercises.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.popii_-_exercises.tests" depends="register.custom.compilers,compile.module.popii_-_exercises.production" description="compile module POPII - Exercises; test classes" unless="skip.tests">
+    <mkdir dir="${popii_-_exercises.testoutput.dir}"/>
+    <javac2 destdir="${popii_-_exercises.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.popii_-_exercises}/javac">
+      <compilerarg line="${compiler.args.popii_-_exercises}"/>
+      <bootclasspath refid="popii_-_exercises.module.bootclasspath"/>
+      <classpath refid="popii_-_exercises.module.classpath"/>
+      <src refid="popii_-_exercises.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.popii_-_exercises"/>
+    </javac2>
+    
+    <copy todir="${popii_-_exercises.testoutput.dir}">
+      <fileset dir="${module.popii_-_exercises.basedir}/Test">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.popii_-_exercises.basedir}/TestWS1">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.popii_-_exercises" description="cleanup module">
+    <delete dir="${popii_-_exercises.output.dir}"/>
+    <delete dir="${popii_-_exercises.testoutput.dir}"/>
+  </target>
+</project>
