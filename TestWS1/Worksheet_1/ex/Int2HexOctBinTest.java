@@ -15,7 +15,7 @@ public class Int2HexOctBinTest {
 
     @Test
     public void int2Boh() throws Exception {
-        assertEquals(one.int2Boh(10).get("0d"), "10");
+        assertEquals(one.int2Boh(11).get("0d"), "11");
     }
 
     @Test
