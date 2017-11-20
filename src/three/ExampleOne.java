@@ -2,6 +2,7 @@ package three;
 
 public class ExampleOne {
     public static void main (String s[]){
+        final int SILLY_NUM = 99;
         int[][] intArray = {{1,2,3,4,5},
                 {2,3,4,5,6},
                 {7,8,9,1,0},};
@@ -10,7 +11,7 @@ public class ExampleOne {
         intArray[2][0] = 99;
         for (int i=0; i<intArray.length; i++){
                 for (int j=0; j<intArray[i].length; j++)
-                    intArray[i][j]=99;
+                    intArray[i][j]=SILLY_NUM;
         }
 
         print(intArray);
@@ -28,6 +29,8 @@ public class ExampleOne {
             }
             System.out.println();
         }
+        System.out.println("---------------");
+
     }
 }
 
