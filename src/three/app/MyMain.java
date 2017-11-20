@@ -14,6 +14,8 @@ public class MyMain {
         MyInterface my3 = new silly();
         System.out.println(my3.nothingVeryInteresting());
 
+        my3.thing();
+        System.out.println(MyInterface.aMethod());
 
     }
 }

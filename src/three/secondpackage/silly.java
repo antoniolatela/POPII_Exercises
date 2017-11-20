@@ -13,4 +13,9 @@ public class silly implements MyInterface{
         return 99;
     }
 
+    @Override
+    public void thing() {
+
+    }
+
 }

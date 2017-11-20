@@ -9,4 +9,7 @@ public abstract class AbstractSilly implements MyInterface {
             return 99;
         }
 
+        public void thing(){
+            System.out.println("*******");
+        }
 }
