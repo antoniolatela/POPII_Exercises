@@ -8,7 +8,10 @@ public class ExampleOne {
 
         print(intArray);
         intArray[2][0] = 99;
-
+        for (int i=0; i<intArray.length; i++){
+                for (int j=0; j<intArray[i].length; j++)
+                    intArray[i][j]=99;
+        }
 
         print(intArray);
 
