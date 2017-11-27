@@ -7,6 +7,10 @@ import java.util.List;
 
 public class MyClass {
 
+    static void test (int i){
+        System.out.print(i + " ");
+    }
+
     public static void main(String[] args) {
         ArrayList<Integer> lst = new ArrayList<>();
 
@@ -19,8 +23,10 @@ public class MyClass {
         lst.forEach(x-> System.out.print(x + " "));
         System.out.println();
 */
+        lst.forEach(x -> test(x));
+
         lst.forEach(System.out::print);
-        //lst.removeIf(x -> x == 2);
+        lst.removeIf(x -> x == 2);
         System.out.println();
         lst.removeIf(x -> x % 2 == 0);
 
