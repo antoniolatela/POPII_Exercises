@@ -5,4 +5,8 @@ public class A implements Base {
     public String myString() {
         return null;
     }
+
+    public String myMethod(){
+        return getClass() + "";
+    }
 }
