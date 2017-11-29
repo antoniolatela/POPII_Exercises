@@ -1,6 +1,7 @@
 package Five.inheritance;
 
 public class A implements Base {
+
     public A(){
 //        super(); //implicit constructor!
         System.out.println("Cons A " + getClass());
@@ -11,7 +12,7 @@ public class A implements Base {
         return null;
     }
 
-    public String myMethod(){
-        return getClass() + "";
+    public static String myMethod(){
+        return "From A";
     }
 }
