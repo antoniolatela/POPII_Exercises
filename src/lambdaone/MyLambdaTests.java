@@ -3,6 +3,7 @@ package lambdaone;
 import six.generics.Person;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MyLambdaTests implements MyLambdaInterface {
 
@@ -49,9 +50,23 @@ public class MyLambdaTests implements MyLambdaInterface {
             Person ss = new Person("antonius",1);
             System.out.println(mg.func2(ss));
 
-            mg = (x) -> {
-            return null;
+            myGen<List> list = (x) -> {
+                for(Object y : (List)x){
+                    System.out.println(y += "a");
+                }
+            return x;
             };
+
+            myGen<Integer> pippo = (x) -> {
+                return x+x;
+            };
+
+            List l = new ArrayList();
+            //l.add(ss);
+            //mg.func2(l);
+            System.out.println(mg.func2(1));
+
+
 
         }
     }
