@@ -1,5 +1,9 @@
 package lambdaone;
 
+import six.generics.Person;
+
+import java.util.ArrayList;
+
 public class MyLambdaTests implements MyLambdaInterface {
 
         public static void main(String args[]) {
@@ -25,8 +29,30 @@ public class MyLambdaTests implements MyLambdaInterface {
             sm = (s) -> s.length();
             String s = "hi";
             System.out.println(sm.getValue(s));
-
             sm = (x) -> x.length();
+            testInt ti = (i) -> i%2==0;
+            System.out.println(ti.getEven(123130));
+            blockLambda bl;
+            bl = (x) -> {
+                System.out.println("...");
+              return x%8;
+            };
+            System.out.println(bl.numFunc(123));
+            myGen mg;
+
+            mg = (x) -> {
+                System.out.println(x.toString());
+                Person xx = (Person)x;
+                return ((Person) x).getName();
+            };
+
+            Person ss = new Person("antonius",1);
+            System.out.println(mg.func2(ss));
+
+            mg = (x) -> {
+            return null;
+            };
+
         }
     }
 
