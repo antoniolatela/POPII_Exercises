@@ -13,6 +13,7 @@ public class SimpleExampletwo<x> {
 
 
     public static void main(String[] args) {
+
         List<Person> l = new ArrayList<>();
         l.add(new Person("a",1));
 

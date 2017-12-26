@@ -1,12 +1,20 @@
 package lambdaone;
 
-public interface MyLambdaInterface {
+interface MyLambdaInterface {
     interface MyNumber {
         double getValue();
     }
 
     interface StringMan {
         int getValue(String s);
+    }
+
+    public interface NumericTest {
+        boolean test(int n, int f);
+    }
+
+    abstract interface Stringa {
+        String getValue(String s);
     }
 
     interface testInt {
