@@ -20,9 +20,10 @@ public class LamdaDemoFinalVar {
     public static void main(String args[]) {
         // A local variable that can be captured.
         LamdaDemoFinalVar l = new LamdaDemoFinalVar();
-
+        int[] x = new int[1]; //even though it's final i cann access it via reference to value
         MyFunc myLambda = (n) -> {
             // This use of num is OK. It does not modify num.
+            x[0] +=1;
             int v = l.num + (Integer) n;
             // However, the following is illegal because it attempts
             // to modify the value of num.
