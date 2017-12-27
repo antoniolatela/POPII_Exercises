@@ -5,18 +5,18 @@ import lambdaone.sublambda.*;
 
 
 public class TestLambdaWithExceptions {
-    static void testLWithExceptions(IWhitExceptions i, String s) throws SringNotNullException{
-        i.printS(s);
+    private int testLWithExceptions(IWhitExceptions i, String s) throws SringNotNullException{
+        return i.printS(s);
     }
 
     public static void main(String[] args) throws SringNotNullException {
 
         IWhitExceptions test = (x) -> {
             if (x == null) {throw new SringNotNullException();}
-            System.out.println(x);
+            return 1;
         };
-
-        testLWithExceptions(test, "ariciao");
+        TestLambdaWithExceptions t = new TestLambdaWithExceptions();
+        System.out.println(t.testLWithExceptions(test, "ariciao"));
 
     }
 }
