@@ -20,7 +20,7 @@ public class ExampleLambda implements MyLambdaInterface{
             for (char c: str.toCharArray()){
                 System.out.println(c);
             }
-            };
+            return x;};
         //System.out.println(GenLam.test2(str)); in case of fruitful generics interface
         GenLam.test2(str); // in case of void class
 

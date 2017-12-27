@@ -1,5 +1,5 @@
 package lambdaone.sublambda;
 
 public interface YetAnotherl2<w> {
-    void test2 (w a);
+    w test2 (w a);
 }
